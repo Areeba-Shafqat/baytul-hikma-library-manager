@@ -132,7 +132,7 @@ def remove_book(index):
 # Search books
 def search_books(search_term, search_by):
     search_term = search_term.lower()
-    results = [book for book in st.session_state.library if search_term in book[search_by.lower()].lower()]
+    results = [book for book in st.session_state.library if search_term in book.get(search_by, "").lower()]
     st.session_state.search_results = results
 
 # Library statistics
